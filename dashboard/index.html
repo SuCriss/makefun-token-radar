@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Makefun Token Radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand"><span class="mark"></span><div><h1>Token Radar</h1><p>Sealed snapshot · offline board</p></div></div>
+    <div class="stats" id="stats"></div>
+  </header>
+  <main class="layout">
+    <section class="board">
+      <div class="controls">
+        <div class="seg" id="filters" role="group" aria-label="Status filter">
+          <button type="button" data-filter="all">All</button>
+          <button type="button" data-filter="pretoken">Pre-token</button>
+          <button type="button" data-filter="live">Live token</button>
+        </div>
+        <label class="search"><span>Q</span><input id="q" type="search" placeholder="Search protocol, slug or category" autocomplete="off"></label>
+        <div class="sortwrap"><label for="sort">Sort</label><select id="sort"><option value="value">Implied value</option><option value="tvl">TVL</option><option value="change">7d change</option></select></div>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>#</th><th>Protocol</th><th data-key="value">Implied value</th><th data-key="tvl">TVL</th><th data-key="change">7d change</th><th>Status</th><th>Farm steps</th></tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div class="foot" id="foot"></div>
+    </section>
+    <aside class="detail" id="detail" hidden>
+      <div class="dhead">
+        <div><h2 id="dName">—</h2><p id="dSlug">—</p></div>
+        <button class="x" id="dClose" type="button">Close</button>
+      </div>
+      <div class="dbody">
+        <div class="grid">
+          <div class="box"><span>Rank</span><b id="dRank">—</b></div>
+          <div class="box"><span>Status</span><b id="dStatus">—</b></div>
+          <div class="box"><span>Implied value</span><b id="dValue">—</b></div>
+          <div class="box"><span>TVL</span><b id="dTvl">—</b></div>
+          <div class="box"><span>7d change</span><b id="dChange">—</b></div>
+          <div class="box"><span>Category</span><b id="dCat">—</b></div>
+        </div>
+        <h3>Farm steps</h3>
+        <ol class="steps-list" id="dSteps"></ol>
+      </div>
+    </aside>
+  </main>
+</div>
+<script src="../data.js"></script>
+<script src="app.js" defer></script>
+</body>
+</html>
